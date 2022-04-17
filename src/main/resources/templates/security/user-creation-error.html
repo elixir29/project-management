@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace = "layouts :: pmaHeader"></head>
+
+<body>
+
+	<nav th:replace = "layouts :: pmaNavbar"></nav>
+
+	<div class="container">
+	
+		<form th:object="${userAccount}">
+			
+			<br>
+			
+			<h4>Validation error's while registering user. Please go through the below errors once.</h4> 
+			
+			<br>
+			
+			<script type="text/javascript">
+				var errorMessageJS = "[[${errorMessage}]]"
+			</script>
+			
+			<div th:if="${#fields.hasAnyErrors()}">					
+				<ul>
+					<li style="color:red" th:each="err : ${#fields.allErrors()}" th:text="${err}" />
+				</ul>
+			</div>
+			
+			<div style="color:red" id="validationError"></div>
+			
+			<br>
+			
+			<h4>You may try to register again by navigating the links in the navbar.</h4>
+			
+			<br>
+			
+		</form>
+		
+	</div>
+	
+	<!-- <footer th:replace = "layouts :: pmaFooter"></footer> -->
+	
+	<script type="text/javascript" th:src="@{/js/userValidation.js}"></script>
+	
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace = "layouts :: pmaHeader"></head>
+
+<body>
+	
+	<nav th:replace = "layouts :: pmaNavbar"></nav>
+	
+	<div class="container">
+		<br>
+		
+		<h4>Current Employees</h4>
+		
+		<div th:replace = "layouts :: pmaGenericAlert"></div>
+		
+		<hr>
+		
+		<a th:href="@{/employees/new}" class="btn btn-primary btn-sm mb-3">New Employee</a>
+		
+		<div th:replace = "layouts :: pmaEmployeeTableAllEditPaginated"></div>
+		
+	</div>
+	
+	<!-- <footer th:replace = "layouts :: pmaFooter"></footer> -->
+	
+</body>
+
+</html>

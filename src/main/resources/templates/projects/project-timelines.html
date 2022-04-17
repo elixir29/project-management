@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace = "layouts :: pmaHeader"></head>
+		
+<body>
+
+	<nav th:replace = "layouts :: pmaNavbar"></nav>
+	
+	<div class="container">
+	
+		<br>
+	
+		<h2 class="text-center"> Project Timelines </h2>
+		
+		<br>
+		<br>
+		
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		
+		<script type="text/javascript">
+			var timeLineschartData = "[[${projectTimeList}]]"
+		</script>
+	
+		<div th:replace="layouts :: pmaTimeLinesPaginationBar"></div>
+	    
+	    <br>
+	    <br>
+	    
+	  	<div id="chart_timeline" style="height:60vh;"></div>
+	  	
+	  </div>
+
+	<script type="text/javascript" th:src="@{/js/timeLinesChart.js}"></script>
+
+</body>
+
+</html>

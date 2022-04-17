@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace = "layouts :: pmaHeader"></head>
+
+<body>
+
+	<nav th:replace = "layouts :: pmaNavbar"></nav>
+	
+	<div class="container">
+		<form autocomplete="off" th:action="@{/register/save}" th:object="${userAccount}" method="POST" class="form-signin" role="form">
+
+			<br>
+
+			<h3 class="form-signin-heading">Registration Form</h3>
+
+			<br>
+			
+			<div class="form-group">
+				<label for="inputUserName" class="col-form-label">User Name</label>
+				<input type="text" th:field="*{userName}" placeholder="User Name"
+				id="inputUserName" class="form-control">
+			</div>							
+			
+			<div class="form-group">
+				<label for="inputUserEmail" class="col-form-label">Email</label>
+				<input type="text" th:field="*{email}" placeholder="Email"
+				id="inputUserEmail" class="form-control">
+			</div>
+			
+			<div class="form-group">
+				<label for="imputUserPass" class="col-form-label">Password</label>
+				<input type="password" th:field="*{password}" placeholder="Password"
+				id="imputUserPass" class="form-control">
+			</div>
+			
+			<br>
+			
+			<div class="form-group">
+				<button class="btn btn-success" type="submit">Register User</button>
+			</div>
+			
+		</form>
+	</div>
+	
+</body>
+
+</html>
